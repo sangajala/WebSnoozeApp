@@ -36,27 +36,33 @@ import java.net.URL;
 
         protected static WebDriver startRemoteWebBrowser(String browser, String URL) {
 
-            if (false) {
+            if (true) {
                 try {
+                    DesiredCapabilities caps = DesiredCapabilities.firefox();
+                    caps.setCapability("platform", "Windows 8.1");
+                    caps.setCapability("version", "30");
+                    driver = new RemoteWebDriver(
+                            new URL("http://bharaj05:64ff29d2-e7de-404b-889e-6f3fc7ca86dd@ondemand.saucelabs.com:80/wd/hub"),
+                            caps);
 
-                    System.setProperty("webdriver.chrome.driver", "/Users/sriramangajala/Documents/Automation/chromedriver");
+                    // System.setProperty("webdriver.chrome.driver", "/Users/sriramangajala/Documents/Automation/chromedriver");
                     //  driver=new ChromeDriver();
-                    System.out.println("grid started...");
-                    DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-                    capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-                    capabilities.setCapability("platform", "Windows XP");
-                    capabilities.setCapability("version", "33");
+                    // System.out.println("grid started...");
+                    //DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+//                    capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+//                    capabilities.setCapability("platform", "Windows XP");
+//                    capabilities.setCapability("version", "33");
 			/*DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("version", "17");
 			capabilities.setCapability("platform", Platform.XP);*/
 //			driver = new RemoteWebDriver(
 //					new URL("http://sansbijo:6504eb7f-2bdf-4f45-b485-6580c876217b@ondemand.saucelabs.com:80/wd/hub"),capabilities);
 //					capabilities);
-                    driver = new RemoteWebDriver(
+                    // driver = new RemoteWebDriver(
 //					new URL("http://127.0.0.1:4444/wd/hub"),
 //					capabilities);
-                            new java.net.URL("http://cb_ram-core:2c259106-416c-4890-9e0a-9f09ccb96c74@ondemand.saucelabs.com:80/wd/hub"),
-                            capabilities);
+//                            new java.net.URL("http://cb_ram-core:2c259106-416c-4890-9e0a-9f09ccb96c74@ondemand.saucelabs.com:80/wd/hub"),
+//                            capabilities);
                     // return driver;
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
